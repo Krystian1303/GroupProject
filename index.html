@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Healthy&Hungry</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300;700&display=swap"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://kit.fontawesome.com/90c6c7efdc.js"
+			crossorigin="anonymous"
+		></script>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+		/>
+		<link rel="stylesheet" href="./css/main.css" />
+	</head>
+	<body>
+		<button class="burger-btn">
+			<div class="burger-btn__box">
+				<div class="burger-btn__bars"></div>
+			</div>
+		</button>
+		<nav class="nav">
+			<div class="nav__items">
+				<a href="index.html" class="nav__item">H&H</a>
+				<a href="menu.html" class="nav__item">Menu</a>
+				<a href="make_it.html" class="nav__item">Make it!</a>
+				<a href="#reviews" class="nav__item">Opinie</a>
+				<a href="contact.html" class="nav__item">Kontakt</a>
+			</div>
+		</nav>
+
+		<header class="header section">
+			<h1 class="header__heading">Healthy&Hungry</h1>
+			<p class="header__text">Pizza nie musi być niezdrowa!</p>
+			<a href="#offers" class="header__btn btn-special-animation">
+				Poznaj ofertę!
+			</a>
+			<div class="white-block white-block-left"></div>
+		</header>
+		<main class="main">
+			<section class="dreams section-padding section white-section">
+				<div class="wrapper">
+					<h2 class="section-heading">Nasze zalety!</h2>
+					<div class="dreams__box">
+						<div class="dreams__box-img">
+							<img
+								src="./img/skladniki_small.jpg"
+								alt="składniki na pizze"
+								class="dreams__img"
+							/>
+						</div>
+
+						<div class="dreams__box-text">
+							<h3 class="dreams__title">Premium składniki!</h3>
+							<p class="dreams__text">
+								W naszej pizzerii używamy tylko składników najwyższej jakości,
+								aby dostarczyć naszym klientom najlepszą możliwą pizzę.
+								Wszystkie nasze składniki, od świeżych warzyw po soczyste mięso
+								i aromatyczne zioła, są starannie wyselekcjonowane i pochodzą od
+								sprawdzonych dostawców. Dzięki temu możemy zagwarantować
+								smakowite i zdrowe jedzenie, które zadowoli nawet najbardziej
+								wymagające podniebienia.
+							</p>
+						</div>
+					</div>
+					<div class="dreams__box">
+						<div class="dreams__box-img dreams__box-img--right">
+							<img
+								src="./img/zadowolenie_small.jpg"
+								alt="zadowolona kobieta"
+								class="dreams__img"
+							/>
+						</div>
+						<div class="dreams__box-text dreams__box-text--right">
+							<h3 class="dreams__title">Niezapomniane wrażenia!</h3>
+							<p class="dreams__text">
+								W naszej pizzerii nie tylko oferujemy pyszne jedzenie, ale
+								również niezapomniane wrażenia kulinarne. Nasze menu zostało
+								starannie skomponowane, aby zaoferować różnorodność smaków,
+								które zaspokoją podniebienia nawet najbardziej wymagających
+								gości. W naszej przyjaznej i relaksującej atmosferze zawsze
+								poczujesz się jak w domu, a nasza obsługa zawsze służy pomocą w
+								wyborze potraw i odpowiedzi na pytania.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="hero-img section">
+				<div class="white-block white-block-left"></div>
+				<div class="white-block white-block-right"></div>
+				<p class="hero-img__title">Healthy&Hungry</p>
+				<hr />
+				<p class="hero-img__text">Jedyne takie smaki na ziemni</p>
+				<hr />
+			</section>
+			<section class="pizza section-padding section white-section" id="pizza">
+				<div class="wrapper">
+					<h2 class="section-heading">Polecane pizze</h2>
+					<div class="pizza__cards">
+						<div class="pizza__card" onclick="void(0)">
+							<div class="pizza__card-img pizza__card-img--first">
+								<h3 class="pizza__card-img-title">Klasyczna Margheritta</h3>
+
+								<p class="pizza__card-img-info">
+									<i class="fas fa-angle-double-right"></i>
+									Więcej informacji
+								</p>
+							</div>
+							<div class="pizza__card-info">
+								<h3 class="pizza__card-info-title">Klasyczna Margheritta</h3>
+								<ul class="pizza_card-info-list">
+									<li class="pizza__card-info-list-item">Puszyste brzegi</li>
+									<li class="pizza__card-info-list-item">Ciągnący się ser</li>
+									<li class="pizza__card-info-list-item">Włoska mąka</li>
+									<li class="pizza__card-info-list-item">Oliwa z toskanii</li>
+									<li class="pizza__card-info-list-item">Pomidory Pelatti</li>
+								</ul>
+								<a
+									href="menu.html"
+									class="pizza__card-info-btn btn-special-animation"
+								>
+									Wybierz
+								</a>
+							</div>
+						</div>
+
+						<div class="pizza__card" onclick="void(0)">
+							<div class="pizza__card-img pizza__card-img--second">
+								<h3 class="pizza__card-img-title">Boska Capriciossa</h3>
+
+								<p class="pizza__card-img-info">
+									<i class="fas fa-angle-double-right"></i>
+									Więcej informacji
+								</p>
+							</div>
+							<div class="pizza__card-info">
+								<h3 class="pizza__card-info-title">Boska Capriciossa</h3>
+								<ul class="pizza_card-info-list">
+									<li class="pizza__card-info-list-item">Puszyste brzegi</li>
+									<li class="pizza__card-info-list-item">Ciągnący się ser</li>
+									<li class="pizza__card-info-list-item">Włoska mąka</li>
+									<li class="pizza__card-info-list-item">Oliwa z toskanii</li>
+									<li class="pizza__card-info-list-item">Pomidory Pelatti</li>
+								</ul>
+								<a
+									href="menu.html"
+									class="pizza__card-info-btn btn-special-animation"
+								>
+									Wybierz
+								</a>
+							</div>
+						</div>
+
+						<div class="pizza__card" onclick="void(0)">
+							<div class="pizza__card-img pizza__card-img--third">
+								<h3 class="pizza__card-img-title">Diabelska Diavola</h3>
+
+								<p class="pizza__card-img-info">
+									<i class="fas fa-angle-double-right"></i>
+									Więcej informacji
+								</p>
+							</div>
+							<div class="pizza__card-info">
+								<h3 class="pizza__card-info-title">Diabelska Diavola</h3>
+								<ul class="pizza_card-info-list">
+									<li class="pizza__card-info-list-item">Puszyste brzegi</li>
+									<li class="pizza__card-info-list-item">Ciągnący się ser</li>
+									<li class="pizza__card-info-list-item">Włoska mąka</li>
+									<li class="pizza__card-info-list-item">Oliwa z toskanii</li>
+									<li class="pizza__card-info-list-item">Pomidory Pelatti</li>
+								</ul>
+								<a
+									href="menu.html"
+									class="pizza__card-info-btn btn-special-animation"
+								>
+									Wybierz
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="offers section-padding section" id="offers">
+				<div class="white-block white-block-left"></div>
+				<div class="white-block white-block-right"></div>
+
+				<h2 class="section-heading">Oferty</h2>
+
+				<div class="wrapper">
+					<div class="offers__box">
+						<div class="offers__option">
+							<img
+								src="./img/rodzina_small.jpg"
+								alt="rodzina"
+								class="offers__option-img"
+							/>
+							<div class="offers__option-info">
+								<h3 class="offers__option-heading">Kolacje z rodziną</h3>
+								<p class="offers__option-text">
+									Zapraszamy na niezapomniane kolacje z rodziną w naszej
+									pizzerii! Nasze menu oferuje bogactwo smaków, które zadowolą
+									nawet najbardziej wymagających smakoszy. Dzieci z pewnością
+									ucieszą się z dostępności naszych specjalnych dziecięcych dań,
+									a rodzice będą mieli okazję cieszyć się wspaniałą kuchnią i
+									miłym towarzystwem.
+								</p>
+								<p class="offers__option-text">Zapraszamy!</p>
+								<button class="offers__option-btn btn-special-animation">
+									Wybierz
+								</button>
+							</div>
+						</div>
+						<div class="offers__option">
+							<img
+								src="./img/ludzie_small.jpg"
+								alt="jedzenie ze znajomymi"
+								class="offers__option-img offers__option-img--right"
+							/>
+							<div class="offers__option-info">
+								<h3 class="offers__option-heading">Wypad z kumplami</h3>
+								<p class="offers__option-text">
+									Zapraszamy na wypad z kumplami do naszej pizzerii! Nasze menu
+									oferuje bogactwo smaków, które zaspokoją nawet najbardziej
+									wymagające podniebienia. Nasza obsługa zawsze służy pomocą w
+									wyborze potraw i odpowiedzi na pytania. Nasza pizzeria to
+									doskonałe miejsce na spędzenie czasu z przyjaciółmi przy
+									pysznej pizzy i chłodnym piwie. Zawsze staramy się zapewnić
+									naszym gościom niezapomniane wrażenia kulinarne i miłą
+									atmosferę. Przyjdźcie i zasmakujcie prawdziwej włoskiej pizzy
+									w towarzystwie przyjaciół.
+								</p>
+								<p class="offers__option-text">Zapraszamy!</p>
+								<button class="offers__option-btn btn-special-animation">
+									Wybierz
+								</button>
+							</div>
+						</div>
+						<div class="offers__option">
+							<img
+								src="./img/razem_small.jpg"
+								alt="dwojka ludzi przy stole"
+								class="offers__option-img"
+							/>
+							<div class="offers__option-info">
+								<h3 class="offers__option-heading">Tylko we dwoje</h3>
+								<p class="offers__option-text">
+									Zapraszamy na romantyczną kolację tylko we dwoje w naszej
+									pizzerii! Nasze menu oferuje bogactwo smaków, które zaspokoją
+									nawet najbardziej wymagające podniebienia. Każda pizza jest
+									wypiekana na miejscu z najświeższych składników, a nasze sosy
+									i dodatki są przygotowywane według oryginalnych, włoskich
+									receptur. W naszej przyjaznej i romantycznej atmosferze zawsze
+									poczujesz się wyjątkowo.
+								</p>
+								<p class="offers__option-text">Zapraszamy!</p>
+								<button class="offers__option-btn btn-special-animation">
+									Wybierz
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section
+				class="reviews section-padding section white-section"
+				id="reviews"
+			>
+				<h2 class="section-heading">Opinie</h2>
+				<div class="wrapper">
+					<div class="reviews__boxes">
+						<div class="reviews__box">
+							<div class="reviews__box-img">
+								<img src="./img/girl1.jpeg" alt="Anna Nowak" />
+							</div>
+							<div class="reviews__box-info">
+								<div class="reviews__box-quote">
+									<i class="fas fa-quote-right"></i>
+								</div>
+								<p class="reviews__box-text">
+									Ładne, przyjemne wnętrze. Miła kelnerka, która nas
+									obsługiwała. Pizza dobra - ciasto cieniutkie, dużo dobrej
+									jakości składników. Syta.
+								</p>
+								<strong>Anna Nowak</strong>
+							</div>
+						</div>
+						<div class="reviews__box">
+							<div class="reviews__box-img">
+								<img src="./img/man2.jpeg" alt="Jan Kowalski" />
+							</div>
+							<div class="reviews__box-info">
+								<div class="reviews__box-quote">
+									<i class="fas fa-quote-right"></i>
+								</div>
+								<p class="reviews__box-text">
+									Bardzo głodni szukaliśmy miejsca gdzie będzie można dobrze
+									zjeść, natrafiliśmy na to miejsce jadąc z duszą na ramieniu
+									czy nie będziemy musieli długo czekać na stolik. Okazało się
+									że pani kelnerka szybko znalazła stolik dla 2 osób, na nasze
+									dania także nie musieliśmy długo czekać.
+								</p>
+								<strong>Jan Kowalski</strong>
+							</div>
+						</div>
+						<div class="reviews__box">
+							<div class="reviews__box-img">
+								<img src="./img/girl3.jpeg" alt="Maria Wiśniewska" />
+							</div>
+							<div class="reviews__box-info">
+								<div class="reviews__box-quote">
+									<i class="fas fa-quote-right"></i>
+								</div>
+								<p class="reviews__box-text">
+									Mimo obłożenia restauracji w walentynkowy wieczór, przemiła
+									pani manager znalazła dla nas stolik. Atmosfera miejsca jest
+									niezwykła, cały wystrój został zakomponowany w znakomitym
+									stylu. Pizza zdecydowanie zasługuje na miano najlepszej w
+									Polsce. Świeże składniki najwyższej jakości, ciasto
+									niesamowicie cienkie i sycące. Ponadto przepyszne piwo z
+									beczki. Polecam! 🍕
+								</p>
+								<strong>Maria Wiśniewska</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="wrapper">
+				<div class="footer__boxes">
+					<div class="footer__box">
+						<h3 class="footer__box-title">Healthy&Hungry</h3>
+						<p>Pizzeria dla twojego serca!</p>
+						<div class="footer__box-social">
+							<a href="#" class="footer__box-link">
+								<i class="fab fa-twitter-square"></i>
+							</a>
+							<a href="#" class="footer__box-link">
+								<i class="fab fa-facebook-square"></i>
+							</a>
+							<a href="#" class="footer__box-link">
+								<i class="fab fa-instagram-square"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="footer__box footer__box-desktop">
+						<h3 class="footer__box-title">Pizze</h3>
+						<ul class="footer__box-list">
+							<li class="footer__box-list-item">
+								<a href="menu.html">Margharitta</a>
+							</li>
+							<li class="footer__box-list-item">
+								<a href="menu.html">Capriciossa</a>
+							</li>
+							<li class="footer__box-list-item">
+								<a href="menu.html">Diavola</a>
+							</li>
+							<li class="footer__box-list-item">
+								<a href="menu.html">Pozostałe Pizze</a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer__box footer__box-desktop">
+						<h3 class="footer__box-title">O firmie</h3>
+						<ul class="footer__box-list">
+							<li class="footer__box-list-item"><a href="#">O nas</a></li>
+							<li class="footer__box-list-item"><a href="#">Zarząd</a></li>
+							<li class="footer__box-list-item"><a href="#">Kariera</a></li>
+							<li class="footer__box-list-item"><a href="#">FAQ</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<p class="footer__bottom-text">
+				&copy;
+				<span class="footer__year"></span>
+				Healthy&Hungry
+			</p>
+		</footer>
+		<script
+			type="text/javascript"
+			src="//code.jquery.com/jquery-1.11.0.min.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+		></script>
+		<script
+			type="text/javascript"
+			src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+		></script>
+		<script src="js/slick.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
