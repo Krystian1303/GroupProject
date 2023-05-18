@@ -42,25 +42,37 @@
 			<div class="wrapper">
 				<section class="menu section-padding section white-section">
 					<h2 class="section-heading">MENU</h2>
+
 					<div class="menu__heading">
 						<p class="menu__heading-one">Nazwa pizzy</p>
 						<p class="menu__heading-two">Składniki</p>
-						<p class="menu__heading-three">Ø42cm</p>
-						<p class="menu__heading-four">Ø32cm</p>
+						<p class="menu__heading-three">Ø32cm</p>
+						<p class="menu__heading-four">Ø42cm</p>
 					</div>
+					<hr />
+
 					<div class="menu__item">
 						<div class="menu__item-desc">
 							<p class="menu__item-desc-one">1. Margharitta</p>
 							<p class="menu__item-desc-two">Sos pomidorowy, ser</p>
 						</div>
+
 						<div class="menu__item-prices">
-							<button class="slice" value="29.90">29,90 zł</button>
-							<button class="slice" value="38.90">38,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
+							<form action="test.php" method="post">
+								<button class="slice one" disabled>
+									<input type="radio" value="29.90" name="cena" /> 29,90 zł
+								</button>
+								<button class="slice two" disabled>
+									<input type="radio" value="38.90" name="cena" /> 38,90 zł
+								</button>
+								<button type="submit" class="slice three">Dodaj</button>
+								<input type="hidden" name="idPizzy" />
+							</form>
 						</div>
 					</div>
 					<hr />
-					<div class="menu__item">
+
+					<!-- <div class="menu__item">
 						<div class="menu__item-desc">
 							<p class="menu__item-desc-one">2. Funghi</p>
 							<p class="menu__item-desc-two">Sos pomidorowy, ser, pieczarki</p>
@@ -181,7 +193,7 @@
 							<button type="submit" class="slice">Dodaj</button>
 						</div>
 					</div>
-					<hr />
+					<hr /> -->
 				</section>
 			</div>
 		</main>
