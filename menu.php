@@ -30,7 +30,7 @@
 				<a href="index.html" class="nav__item">H&H</a>
 				<a href="menu.php" class="nav__item">Menu</a>
 				<a href="make_it.php" class="nav__item">Make it!</a>
-				<a href="contact.html" class="nav__item">Kontakt</a>
+				<a href="contact.php" class="nav__item">Kontakt</a>
 			</div>
 		</nav>
 		<header class="header section">
