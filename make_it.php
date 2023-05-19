@@ -25,8 +25,8 @@
 	<nav class="nav">
 		<div class="nav__items">
 			<a href="index.html" class="nav__item">H&H</a>
-			<a href="menu.html" class="nav__item">Menu</a>
-			<a href="make_it.html" class="nav__item">Make it!</a>
+			<a href="menu.php" class="nav__item">Menu</a>
+			<a href="make_it.php" class="nav__item">Make it!</a>
 			<a href="contact.html" class="nav__item">Kontakt</a>
 		</div>
 	</nav>
@@ -49,7 +49,15 @@
 						</div>
 
 
-						<div class="create__body">
+						<?php
+					
+							require_once "listFunct.php";
+
+							echo listIngredients();
+					
+						?>
+
+						<!--<div class="create__body">
 							<p class="create__body-ingridient">Ser</p>
 							<label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
 								<input type="checkbox" unchecked>
@@ -70,7 +78,7 @@
 							</label>
 						</div>
 						<button type="submit" class="create__submit">Zamów!</button>
-						<!-- <div class="create__body">
+						 <div class="create__body">
 						<p class="create__body-ingridient">Szynka</p>
 						<button class="create__body-btn">Dodaj</button>
 						<br />

@@ -28,8 +28,8 @@
 		<nav class="nav">
 			<div class="nav__items">
 				<a href="index.html" class="nav__item">H&H</a>
-				<a href="menu.html" class="nav__item">Menu</a>
-				<a href="make_it.html" class="nav__item">Make it!</a>
+				<a href="menu.php" class="nav__item">Menu</a>
+				<a href="make_it.php" class="nav__item">Make it!</a>
 				<a href="contact.html" class="nav__item">Kontakt</a>
 			</div>
 		</nav>
@@ -51,7 +51,17 @@
 					</div>
 					<hr />
 
-					<div class="menu__item">
+
+					<?php
+					
+						require_once "listFunct.php";
+
+						echo listPizza();
+					
+					?>
+
+
+					<!--<div class="menu__item">
 						<div class="menu__item-desc">
 							<p class="menu__item-desc-one">1. Margharitta</p>
 							<p class="menu__item-desc-two">Sos pomidorowy, ser</p>
@@ -70,7 +80,7 @@
 							</form>
 						</div>
 					</div>
-					<hr />
+					<hr />-->
 
 					<!-- <div class="menu__item">
 						<div class="menu__item-desc">
