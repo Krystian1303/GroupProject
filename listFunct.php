@@ -18,10 +18,10 @@
 				$str .= '	<div class="menu__item-prices">';
 				$str .= '		<form action="#" method="post">';
 				$str .= '			<button class="slice one" disabled>';
-				$str .= '				<input type="radio" value="' . $row["cena_mala"] . '" name="cena" /> ' . $row["cena_mala"] . ' z³';
+				$str .= '				<input type="radio" value="' . $row["cena_mala"] . '" name="cena" /> ' . $row["cena_mala"] . ' zl';
 				$str .= '			</button>';
 				$str .= '			<button class="slice two" disabled>';
-				$str .= '				<input type="radio" value="' . $row["cena_duza"] . '" name="cena" /> ' . $row["cena_duza"] . ' z³';
+				$str .= '				<input type="radio" value="' . $row["cena_duza"] . '" name="cena" /> ' . $row["cena_duza"] . ' zl';
 				$str .= '			</button>';
 				$str .= '			<button type="submit" class="slice three">Dodaj</button>';
 				$str .= '			<input type = "hidden" name = "idPizzy" value = "' . $row["pizza_id"] . '" />';
