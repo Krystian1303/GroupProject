@@ -1,7 +1,7 @@
-
 <?php
 
 	function listPizza(){
+		require_once "connection.php";
 		$conn = makeConnection();
 
 		$str = 'Nieprawid³owe po³¹czenie z baz¹ danych.';
@@ -16,7 +16,7 @@
 				$str .= '		<p class="menu__item-desc-two">' . $row["opis"] . '</p>';
 				$str .= '	</div>';
 				$str .= '	<div class="menu__item-prices">';
-				$str .= '		<form action="test.php" method="post">';
+				$str .= '		<form action="#" method="post">';
 				$str .= '			<button class="slice one" disabled>';
 				$str .= '				<input type="radio" value="' . $row["cena_mala"] . '" name="cena" /> ' . $row["cena_mala"] . ' z³';
 				$str .= '			</button>';
@@ -37,6 +37,7 @@
 	}
 
 	function listIngredients(){
+		require_once "connection.php";
 		$conn = makeConnection();
 
 		$str = 'Nieprawid³owe po³¹czenie z baz¹ danych.';
@@ -58,15 +59,4 @@
 		return $str;
 	}
 
-	function makeConnection(){
-		require_once "connection.php";
-		$conn = new mysqli($host, $db_user, $db_password, $db_name);
-
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-			return null;
-		}
-
-		return $conn;
-	}
 ?>

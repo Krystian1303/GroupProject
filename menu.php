@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Healthy&Hungry</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300;700&display=swap"
-			rel="stylesheet"
-		/>
-		<script
-			src="https://kit.fontawesome.com/90c6c7efdc.js"
-			crossorigin="anonymous"
-		></script>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Healthy&Hungry</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300;700&display=swap"
+		  rel="stylesheet" />
+	<script src="https://kit.fontawesome.com/90c6c7efdc.js"
+			crossorigin="anonymous"></script>
 
-		<link rel="stylesheet" href="./css/main.css" />
-		<link rel="stylesheet" href="./css/menu.css" />
-	</head>
+	<link rel="stylesheet" href="./css/main.css" />
+	<link rel="stylesheet" href="./css/menu.css" />
+	<?php
+
+		if(isset($_POST['idPizzy'])){
+			if(!isset($_POST['cena'])){
+				echo "<script>console.log('cena nie została wybrana');</script>";
+				exit();
+			}
+
+			require_once "connection.php";
+			$conn = makeConnection();
+
+			$name = '';
+			$description = '';
+
+			if($result = $conn->query("SELECT nazwa, opis FROM pizza WHERE pizza_id = " . $_POST['idPizzy'])){
+				$row = $result->fetch_assoc();
+
+				$name = $row['nazwa'];
+				$description = $row['opis'];
+				require_once "orders.php";
+				addToOrder($_POST['idPizzy'], $name, $description, $_POST['cena']);
+			}
+
+		}
+	?>
+</head>
 	<body>
 		<button class="burger-btn">
 			<div class="burger-btn__box">
