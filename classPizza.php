@@ -13,7 +13,7 @@
 		}
 
 		function show(){
-			return sprintf("%s | %s | %s | %0.2f", $this->id, $this->name, $this->description, $this->price);
+			return sprintf("%s | %s | %s | %0.2f | %s", $this->id, $this->name, $this->description, $this->price, $this->amount);
 		}
 
 		function incrementAmount(){
