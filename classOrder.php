@@ -4,15 +4,23 @@
 
 	class Order{
 		private $pizzas;
+		private $amount;
 
 		function __construct(int $id, string $name, string $description, float $price){
 			$this->pizzas = array(new Pizza($id, $name, $description, $price));
+			$this->amount = 1;
 		}
 
 		function addPizza(int $id, string $name, string $description, float $price){
-			// Trzeba przejœæ po tablicy $pizzas i wywo³aæ funkcjê ifTheSame z classPizza.
-			// Jeœli jakaœ pizza zwróci true dla tej funkcji to trzeba jej $amount zwiêkszyæ o jeden zamiast dodawaæ
-			// kolejn¹ pizzê do tablicy.
+			$this->amount++;
+
+			// Tu ustawiæ b³¹d dodawania pizzy - zmienna sesyjna
+			if($this->amount >= 4){
+				$this->amount--;
+				echo "<script>console.log('Mo¿esz zamówiæ maksymalnie 3 produkty.'); </script>";
+				return;
+			}
+
 			foreach($this->pizzas as &$pizza){
 				if($pizza->ifTheSame($id, $name, $description, $price)){
 					$pizza->incrementAmount();

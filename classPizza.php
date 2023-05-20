@@ -1,6 +1,8 @@
 <?php
 
 	class Pizza{
+		const DEFAULT_PIZZA_NAME = "zrob to sam";
+		const DEFAULT_PIZZA_PRICE = 37.00;
 		private $amount;
 		private $id, $name, $description, $price;
 

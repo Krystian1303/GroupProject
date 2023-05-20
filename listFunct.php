@@ -1,12 +1,13 @@
 <?php
-
+	
+	require_once "classPizza.php";
 	function listPizza(){
 		require_once "connection.php";
 		$conn = makeConnection();
 
 		$str = 'Nieprawid³owe po³¹czenie z baz¹ danych.';
 
-		if($result = $conn->query("SELECT * FROM pizza;")){
+		if($result = $conn->query("SELECT * FROM pizza WHERE nazwa != '" . Pizza::DEFAULT_PIZZA_NAME . "';")){
 			$counter = 1;
 			$str = '';
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){
@@ -33,6 +34,7 @@
 			}
 		}
 
+		$conn->close();
 		return $str;
 	}
 
@@ -48,7 +50,7 @@
 				$str .= '<div class="create__body">';
 				$str .= '	<p class="create__body-ingridient">' . $row["nazwa"] . '</p>';
 				$str .= '	<label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">';
-				$str .= '		<input type="checkbox" name = "' . $row["nazwa"] . '" value = "' . $row["skladnik_id"] . '" unchecked>';
+				$str .= '		<input type="checkbox" name = "' . $row["skladnik_id"] . '" value = "' . $row["nazwa"] . '" unchecked>';
 				$str .= '		<span class="checkmark"></span>';
 				$str .= '		<span class="label"></span>';
 				$str .= '	</label>';
@@ -56,6 +58,7 @@
 			}
 		}
 
+		$conn->close();
 		return $str;
 	}
 

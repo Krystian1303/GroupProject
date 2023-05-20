@@ -14,6 +14,55 @@
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/make_it.css" />
+
+	<?php
+		require_once "classPizza.php";
+		require_once "orders.php";
+		$igredients = (array)null;
+
+		foreach($_POST as $id => $name){
+			if(strcmp($id, 'submitButton') != 0){
+				$ingredients[$id] = $name;
+				//echo "<script>console.log('$id => $name'); </script>";
+			}
+				
+		}
+
+		if(isset($_POST['submitButton']) && empty($ingredients)) // Za mało składników - wyświetlanie błędu
+			echo "<script>console.log('Wybierz składniki aby zamówić pizzę'); </script>";
+		else if(isset($_POST['submitButton']) && count($ingredients) > 7) // Wyświetlanie błędu gdy ktoś doda za dużo składników
+			echo "<script>console.log('Za dużo składników. Maksymalna ilość składników to 7'); </script>";
+		else if(isset($_POST['submitButton'])){
+			$iterator = 1;
+			$description = 'ciasto, ';
+			foreach($ingredients as $name){
+				$str = $name;
+				$str .= ($iterator != count($ingredients)) ? ', ' : '';
+				$description .= $str;
+				$iterator++;
+			}
+
+			require_once "connection.php";
+			$conn = makeConnection();
+			$pizza_id = '';
+			if($result = $conn->query("INSERT INTO pizza VALUES(null, '" . Pizza::DEFAULT_PIZZA_NAME . "', '$description', " . Pizza::DEFAULT_PIZZA_PRICE . ", null);")){
+				if($result = $conn->query("SELECT LAST_INSERT_ID() AS id;")){
+					$row = $result->fetch_assoc();
+					$pizza_id = $row['id'];
+				}	
+			}
+
+			foreach($ingredients as $ingredient_id => $name){
+				$conn->query("INSERT INTO pizza_sklad VALUES(null, $pizza_id, $ingredient_id);");
+			}
+
+			// Wyświetlić komunikat o udanym dodaniu pizzy do zamówienia
+			addToOrder($pizza_id, Pizza::DEFAULT_PIZZA_NAME, $description, Pizza::DEFAULT_PIZZA_PRICE);
+			echo "<script>console.log('Udalo sie dodac pizze zrob to sam do zamowien.'); </script>";
+			$conn->close();
+		}
+
+	?>
 </head>
 
 <body>
@@ -42,7 +91,7 @@
 
 
 
-				<form action="">
+				<form action = "#" method = "post">
 					<div class="create">
 						<div class="create__heading">
 							<p class="create__heading-text">składniki</p>
@@ -56,6 +105,8 @@
 							echo listIngredients();
 					
 						?>
+
+						<button type="submit" class="create__submit" name = "submitButton">Zamów!</button>
 
 						<!--<div class="create__body">
 							<p class="create__body-ingridient">Ser</p>
@@ -77,7 +128,6 @@
 								<span class="label"></span>
 							</label>
 						</div>
-						<button type="submit" class="create__submit">Zamów!</button>
 						 <div class="create__body">
 						<p class="create__body-ingridient">Szynka</p>
 						<button class="create__body-btn">Dodaj</button>
