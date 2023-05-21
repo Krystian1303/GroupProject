@@ -12,9 +12,17 @@
 			$_SESSION[$whichMessage] = 'Dodano pizze do zamowienia.';
 			$_SESSION[$whichMessage . 'Type'] = false;
 		}
+		
+		function getPizza($whichPizza){
+			return $this->pizzas[$whichPizza];
+		}
 
 		function getAmount(){
 			return $this->amount;
+		}
+
+		function getPizzasCount(){
+			return count($this->pizzas);
 		}
 
 		function addPizza(int $id, string $name, string $description, float $price, string $whichMessage){

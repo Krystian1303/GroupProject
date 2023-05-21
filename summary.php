@@ -30,8 +30,6 @@
                 }
             }
 
-            //echo "<script>console.log('" . $_SESSION['order']->getAmount() . "'); </script>";
-
             if(!$ifEmpty && $_SESSION['order']->getAmount() > 0){
                 $conn = makeConnection();
 
@@ -65,7 +63,16 @@
                     }                
                 }
 
-                
+                $date = date("Y-m-d H:i:s", time());
+
+                for($i = 0; $i < $_SESSION['order']->getPizzasCount(); $i++){
+                    $pizza = $_SESSION['order']->getPizza($i);
+                    $conn->query("INSERT INTO zamowienia VALUES(null, $clientId, " . $pizza->getId() . ", " . $pizza->getAmount() . ", '$date', " . $pizza->getPrice() . ");");
+                }
+
+                unset($_SESSION['order']);
+                    
+                echo "<script> alert('Dokonano zamowienia.'); </script>";
 
                 $conn->close();
             }
