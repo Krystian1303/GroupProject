@@ -49,9 +49,11 @@ body {
 			&-one {
 				grid-row: 1/2;
 				padding: 10px;
+				text-transform: capitalize;
 			}
 			&-two {
 				grid-row: 2/3;
+				text-transform: capitalize;
 			}
 		}
 

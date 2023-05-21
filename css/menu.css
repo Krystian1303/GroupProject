@@ -125,9 +125,11 @@ body {
 .menu__item-desc-one {
   grid-row: 1/2;
   padding: 10px;
+  text-transform: capitalize;
 }
 .menu__item-desc-two {
   grid-row: 2/3;
+  text-transform: capitalize;
 }
 .menu__item-prices {
   grid-row: 3/6;

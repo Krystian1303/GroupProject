@@ -28,10 +28,10 @@
 		function addPizza(int $id, string $name, string $description, float $price, string $whichMessage){
 			$this->amount++;
 
-			// Tu ustawiæ b³¹d dodawania pizzy - zmienna sesyjna
+			// Tu ustawiï¿½ bï¿½ï¿½d dodawania pizzy - zmienna sesyjna
 			if($this->amount >= 4){
 				$this->amount--;
-				$_SESSION[$whichMessage] = 'Mo¿esz zamówiæ maksymalnie 3 produkty.';
+				$_SESSION[$whichMessage] = 'Moï¿½esz zamï¿½wiï¿½ maksymalnie 3 produkty.';
 				$_SESSION[$whichMessage . 'Type'] = true;
 				return;
 			}
@@ -77,7 +77,7 @@
                 $items .= '   <div class="menu__item-desc">';
                 $items .= '        <p class="menu__item-desc-one">' . $counter . '. ' . $pizza->getName() . '</p>';
                 $items .= '        <p class="menu__item-desc-two">' . $pizza->getDescription() . '</p>';
-                $items .= '        <p class="menu__item-desc-three">Cena: ' . $pizza->getPrice() . 'zl ilosc: ' . $pizza->getAmount() . '</p>';
+                $items .= '        <p class="menu__item-desc-three">Cena: &nbsp;' . $pizza->getPrice() . 'zl    &nbsp; Ilosc: &nbsp;' . $pizza->getAmount() . '</p>';
                 $items .= '    </div>';
                 $items .= '    <div class="menu__item-prices">';
                 $items .= '        <form action = "summary.php" method = "post">';
