@@ -52,7 +52,7 @@
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
-  color: #ff8000;
+  color: #ff6600;
   letter-spacing: 2px;
 }
 
@@ -105,7 +105,7 @@ body {
   grid-row: 1/2;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border: 1px solid #ff8000;
+  border: 1px solid #ff6600;
   border-radius: 8px;
   font-size: 2rem;
   margin-bottom: 20px;
