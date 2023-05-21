@@ -1,7 +1,7 @@
 //font-family: "Dancing Script", cursive;
 //font-family: "Open Sans", sans-serif;
 //576 768 992
-@use "index" as s;
+@use 'index' as s;
 
 *,
 *::before,
@@ -15,12 +15,25 @@ html {
 	scroll-behavior: smooth;
 }
 body {
-	font-family: "Open Sans", sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.6rem;
 }
 .menu {
 	&__heading {
 		display: none;
+	}
+	&__alert {
+		display: flex;
+		justify-content: center;
+		&-red {
+			color: red;
+		}
+		&-green {
+			color: rgb(36, 247, 36);
+		}
+		p {
+			font-size: 2rem;
+		}
 	}
 	&__item {
 		display: grid;
@@ -81,7 +94,7 @@ button {
 }
 button::before,
 button::after {
-	content: "";
+	content: '';
 	display: block;
 	position: absolute;
 	transition: all 0.5s;

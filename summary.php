@@ -25,6 +25,7 @@
     <nav class="nav">
         <div class="nav__items">
             <a href="index.html" class="nav__item">H&H</a>
+            <a href="summary.php" class="nav__item">Koszyk</a>
             <a href="menu.php" class="nav__item">Menu</a>
             <a href="make_it.php" class="nav__item">Make it!</a>
             <a href="contact.php" class="nav__item">Kontakt</a>
@@ -62,8 +63,12 @@
                             Adres e-mail
                         </label>
                         <input type="text" class="contact__form-input" id="email" />
+                        <label for="telephone" class="contact__form-label">Nr telefonu</label>
+                        <input type="number" class="contact__form-input" id="telephone" />
                         <label for="street" class="contact__form-label">Ulica</label>
                         <input type="text" class="contact__form-input" id="street" />
+                        <label for="houseNr" class="contact__form-label">Nr domu</label>
+                        <input type="number" class="contact__form-input" id="houseNr" />
                         <label for="city" class="contact__form-label">Miejscowość</label>
                         <input type="text" class="contact__form-input" id="city" />
                         <label for="zipCode" class="contact__form-label">Kod pocztowy</label>

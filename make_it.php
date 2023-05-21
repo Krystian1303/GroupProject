@@ -74,6 +74,7 @@
 	<nav class="nav">
 		<div class="nav__items">
 			<a href="index.html" class="nav__item">H&H</a>
+			<a href="summary.php" class="nav__item">Koszyk</a>
 			<a href="menu.php" class="nav__item">Menu</a>
 			<a href="make_it.php" class="nav__item">Make it!</a>
 			<a href="contact.php" class="nav__item">Kontakt</a>
@@ -92,12 +93,15 @@
 
 
 				<form action = "#" method = "post">
-					<div class="create">
+					<div class="create" >
 						<div class="create__heading">
 							<p class="create__heading-text">składniki</p>
 						</div>
 
-
+						<div class="create__alert" >
+							<p class="create__alert-red">Alert1</p>
+							<p class="create__alert-green">Alert2</p>
+						</div>
 						<?php
 					
 							require_once "listFunct.php";

@@ -97,6 +97,19 @@ body {
 .menu__heading {
   display: none;
 }
+.menu__alert {
+  display: flex;
+  justify-content: center;
+}
+.menu__alert-red {
+  color: red;
+}
+.menu__alert-green {
+  color: rgb(36, 247, 36);
+}
+.menu__alert p {
+  font-size: 2rem;
+}
 .menu__item {
   display: grid;
   grid-template-rows: repeat(5, 1fr);

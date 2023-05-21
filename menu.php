@@ -49,6 +49,7 @@
 		<nav class="nav">
 			<div class="nav__items">
 				<a href="index.html" class="nav__item">H&H</a>
+				<a href="summary.php" class="nav__item">Koszyk</a>
 				<a href="menu.php" class="nav__item">Menu</a>
 				<a href="make_it.php" class="nav__item">Make it!</a>
 				<a href="contact.php" class="nav__item">Kontakt</a>
@@ -70,6 +71,10 @@
 						<p class="menu__heading-three">Ø32cm</p>
 						<p class="menu__heading-four">Ø42cm</p>
 					</div>
+					<div class="menu__alert" >
+							<p class="menu__alert-red">Alert1</p>
+							<p class="menu__alert-green">Alert2</p>
+						</div>
 					<hr />
 
 
