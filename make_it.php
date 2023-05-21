@@ -11,7 +11,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans:wght@300;700&display=swap"
 		rel="stylesheet" />
 	<script src="https://kit.fontawesome.com/90c6c7efdc.js" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/make_it.css" />
 
@@ -277,10 +276,6 @@
 			Healthy&Hungry
 		</p>
 	</footer>
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-	<script src="js/slick.js"></script>
 	<script src="js/main.js"></script>
 </body>
 

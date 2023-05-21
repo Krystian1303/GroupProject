@@ -1,7 +1,7 @@
 //font-family: "Dancing Script", cursive;
 //font-family: "Open Sans", sans-serif;
 //576 768 992
-@use "./index" as s;
+@use './index' as s;
 
 *,
 *::before,
@@ -15,7 +15,7 @@ html {
 	scroll-behavior: smooth;
 }
 body {
-	font-family: "Open Sans", sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 1.6rem;
 }
 
@@ -90,7 +90,7 @@ body {
 		text-decoration: none;
 		&::before {
 			position: absolute;
-			content: "";
+			content: '';
 			top: 0;
 			left: 0;
 			width: 3px;
@@ -132,10 +132,10 @@ body {
 	height: 75vh;
 	text-align: center;
 	color: s.$pure-white;
-	@include s.heroImages("../img/header_small.jpg");
+	@include s.heroImages('../img/header_small.jpg');
 	background-attachment: scroll;
 	&__heading {
-		font-family: "Dancing Script", cursive;
+		font-family: 'Dancing Script', cursive;
 		font-size: 4.8rem;
 		font-weight: 300;
 	}
@@ -160,7 +160,7 @@ body {
 }
 //********************
 //MAIN
-//******************** Dreams Section
+//********************
 
 .dreams {
 	&__box {
@@ -185,12 +185,12 @@ body {
 .hero-img {
 	position: relative;
 	padding: 10em 2em;
-	@include s.heroImages("../img/hero_small.jpg");
+	@include s.heroImages('../img/hero_small.jpg');
 	text-align: center;
 	color: s.$pure-white;
 	overflow: hidden;
 	&__title {
-		font-family: "Dancing Script", cursive;
+		font-family: 'Dancing Script', cursive;
 		margin-bottom: 0.5em;
 		font-size: 4.8rem;
 	}
@@ -237,7 +237,7 @@ a {
 				background-image: s.$purple-gradient, url(../img/diavola_small.jpg);
 			}
 			&-title {
-				font-family: "Dancing Script", cursive;
+				font-family: 'Dancing Script', cursive;
 				font-size: 2.8rem;
 			}
 			&-info {
@@ -268,7 +268,7 @@ a {
 			&-title {
 				@include s.IslandCardStyles;
 				top: 1.2em;
-				font-family: "Dancing Script", cursive;
+				font-family: 'Dancing Script', cursive;
 				font-size: 2.8rem;
 			}
 			&-list {
@@ -304,7 +304,7 @@ a {
 .offers {
 	position: relative;
 	overflow: hidden;
-	@include s.heroImages("../img/rodzina_small.jpgg");
+	@include s.heroImages('../img/rodzina_small.jpgg');
 
 	.section-heading {
 		color: s.$pure-white;
@@ -640,7 +640,7 @@ a {
 	}
 	.hero-img {
 		padding: 40rem 2em;
-		background-image: s.$blue-gradient, url("../img/hero_big.jpg");
+		background-image: s.$blue-gradient, url('../img/hero_big.jpg');
 		&__title {
 			font-size: 8.2rem;
 		}

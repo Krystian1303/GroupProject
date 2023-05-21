@@ -1,9 +1,9 @@
-@use "./colors" as colors;
+@use './colors' as colors;
 @mixin burgerbtn {
 	position: absolute;
 	right: 0;
 	height: 3px;
-	content: "";
+	content: '';
 	background-color: colors.$pure-white;
 	transition: width 0.3s;
 }
