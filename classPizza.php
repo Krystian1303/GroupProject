@@ -22,6 +22,22 @@
 			$this->amount++;
 		}
 
+		function getId(){
+			return $this->id;
+		}
+
+		function getName(){
+			return $this->name;
+		}
+
+		function getDescription(){
+			return $this->description;
+		}
+
+		function getPrice(){
+			return $this->price;
+		}
+
 		function getAmount(){
 			return $this->amount;
 		}

@@ -97,7 +97,6 @@
 							<p class="create__heading-text">składniki</p>
 						</div>
 
-
 						<?php
 					
 							require_once "listFunct.php";
