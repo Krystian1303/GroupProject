@@ -28,7 +28,10 @@
 	}
 
 	function removeFromOrder($whichPizza){
-		
+		unset($_SESSION['order']->removePizza($whichPizza));
 	}
+
+	if(isset($_POST['whichToDelete']))
+		removeFromOrder($_POST['whichToDelete']);
 
 ?>

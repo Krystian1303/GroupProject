@@ -102,6 +102,7 @@
 							<p class="create__alert-red">Alert1</p>
 							<p class="create__alert-green">Alert2</p>
 						</div>
+
 						<?php
 					
 							require_once "listFunct.php";

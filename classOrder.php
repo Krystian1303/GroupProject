@@ -32,7 +32,7 @@
 		}
 
 		function removePizza($whichPizza){
-
+			unset($this->pizzas);
 		}
 
 		function show(){
@@ -44,16 +44,19 @@
 
 			$counter = 1;
 			foreach($this->pizzas as $pizza){
-				$items  = '<div class="menu__item">';
+				if($counter == 1)
+					$items = '';
+
+				$items .= '<div class="menu__item">';
                 $items .= '   <div class="menu__item-desc">';
                 $items .= '        <p class="menu__item-desc-one">' . $counter . '. ' . $pizza->getName() . '</p>';
                 $items .= '        <p class="menu__item-desc-two">' . $pizza->getDescription() . '</p>';
                 $items .= '        <p class="menu__item-desc-three">Cena: ' . $pizza->getPrice() . '</p>';
                 $items .= '    </div>';
                 $items .= '    <div class="menu__item-prices">';
-                $items .= '        <form action="test.php" method="post">';
+                $items .= '        <form action = "orders.php" method = "post">';
                 $items .= '            <button type="submit" class="slice three">Usun</button>';
-                $items .= '            <input type="hidden" name="idPizzy" />';
+                $items .= '            <input type="hidden" name="whichToDelete" value = "' . $counter . '"/>';
                 $items .= '        </form>';
                 $items .= '    </div>';
                 $items .= '</div>';
