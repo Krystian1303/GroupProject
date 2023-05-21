@@ -14,6 +14,14 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/menu.css">
+
+    <?php
+
+    require_once "orders.php";
+    if(isset($_POST['whichToDelete']))
+		removeFromOrder($_POST['whichToDelete']);
+    
+    ?>
 </head>
 
 <body>
@@ -39,10 +47,6 @@
         <section class="section section-padding white-section summary contact">
             <h2 class="section-heading">Podsumowanie zamówienia</h2>
             <div class="wrapper">
-
-
-
-
 
                 <?php
                     require_once "orders.php";

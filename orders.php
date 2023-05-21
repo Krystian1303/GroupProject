@@ -14,9 +14,12 @@
 	}
 
 	function showOrder(){
+
+		//unset($_SESSION['order']);
+
 		$items  = '<div class="menu__item">';
 		$items .= '	<div class="menu__item-desc">';
-		$items .= '		<p class="menu__item-desc-one">Brak zamowien.</p>';
+		$items .= '		<p class="menu__item-desc-one">Koszyk pusty.</p>';
 		$items .= '	</div>';
 		$items .= '</div>';
 
@@ -25,13 +28,11 @@
 		}
 
 		return $items;
+		return "";
 	}
 
 	function removeFromOrder($whichPizza){
-		unset($_SESSION['order']->removePizza($whichPizza));
+		$_SESSION['order']->removePizza($whichPizza);
 	}
-
-	if(isset($_POST['whichToDelete']))
-		removeFromOrder($_POST['whichToDelete']);
 
 ?>

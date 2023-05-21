@@ -32,15 +32,19 @@
 		}
 
 		function removePizza($whichPizza){
-			unset($this->pizzas);
+			unset($this->pizzas[$whichPizza - 1]);
+			$this->pizzas = array_values($this->pizzas);
+			$this->amount--;
 		}
 
 		function show(){
 			$items  = '<div class="menu__item">';
 			$items .= '	<div class="menu__item-desc">';
-			$items .= '		<p class="menu__item-desc-one">Brak zamowien.</p>';
+			$items .= '		<p class="menu__item-desc-one">Koszyk pusty.</p>';
 			$items .= '	</div>';
 			$items .= '</div>';
+
+			echo "<script>console.log('" . count($this->pizzas) . "'); </script>";
 
 			$counter = 1;
 			foreach($this->pizzas as $pizza){
@@ -54,7 +58,7 @@
                 $items .= '        <p class="menu__item-desc-three">Cena: ' . $pizza->getPrice() . '</p>';
                 $items .= '    </div>';
                 $items .= '    <div class="menu__item-prices">';
-                $items .= '        <form action = "orders.php" method = "post">';
+                $items .= '        <form action = "summary.php" method = "post">';
                 $items .= '            <button type="submit" class="slice three">Usun</button>';
                 $items .= '            <input type="hidden" name="whichToDelete" value = "' . $counter . '"/>';
                 $items .= '        </form>';
@@ -63,7 +67,9 @@
 
 				$counter++;
 
-				echo "<script>console.log('" . $pizza->show() . "'); </script>";
+				
+			echo "<script>console.log('" . $pizza->show() . "'); </script>";
+
 			}
 
 			return $items;
