@@ -2,12 +2,12 @@
 	require_once "classOrder.php";
 	session_start();
 
-	function addToOrder($id_pizza, $name, $description, $price){
+	function addToOrder($id_pizza, $name, $description, $price, $whichMessage){
 		//echo "<script>console.log('$id_pizza, $name, $description, $price'); </script>";
 		if(!isset($_SESSION['order']))
-			$_SESSION['order'] = new Order($id_pizza, $name, $description, $price);
+			$_SESSION['order'] = new Order($id_pizza, $name, $description, $price, $whichMessage);
 		else 
-			$_SESSION['order']->addPizza($id_pizza, $name, $description, $price);
+			$_SESSION['order']->addPizza($id_pizza, $name, $description, $price, $whichMessage);
 
 		showOrder();
 		

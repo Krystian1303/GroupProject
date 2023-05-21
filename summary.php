@@ -12,13 +12,64 @@
         rel="stylesheet" />
     <script src="https://kit.fontawesome.com/90c6c7efdc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/menu.css" />
 
     <?php
 
-    require_once "orders.php";
-    if(isset($_POST['whichToDelete']))
-		removeFromOrder($_POST['whichToDelete']);
+        require_once "orders.php";
+        require_once "connection.php";
+        if(isset($_POST['whichToDelete']))
+		    removeFromOrder($_POST['whichToDelete']);
+
+        if(isset($_POST['firstName'])){
+            $ifEmpty = false;
+            foreach($_POST as $element){
+                if(strcmp($element, "") == 0){
+                    $ifEmpty = true;
+                    break;
+                }
+            }
+
+            //echo "<script>console.log('" . $_SESSION['order']->getAmount() . "'); </script>";
+
+            if(!$ifEmpty && $_SESSION['order']->getAmount() > 0){
+                $conn = makeConnection();
+
+                $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
+                $secondName = mysqli_real_escape_string($conn, $_POST['secondName']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);
+                $numberTel = mysqli_real_escape_string($conn, $_POST['numberTel']);
+                $street = mysqli_real_escape_string($conn, $_POST['street']);
+                $numberHouse = mysqli_real_escape_string($conn, $_POST['numberHouse']);
+                $city = mysqli_real_escape_string($conn, $_POST['city']);
+                $zipCode = mysqli_real_escape_string($conn, $_POST['zipCode']);
+
+                $clientId = '';
+
+                $sql  = "SELECT klient_id FROM klienci WHERE imie = '$firstName' AND nazwisko = '$secondName' AND ";
+                $sql .= "ulica = '$street' AND nr_domu = $numberHouse AND kod_poczta = '$zipCode' AND miasto = '$city' AND ";
+                $sql .= "mail = '$email' AND telefon = '$numberTel';";
+
+                if($result = $conn->query($sql)){
+                    if($result->num_rows > 0){
+                        $row = $result->fetch_assoc();
+                        $clientId = $row['klient_id'];
+                    }else{
+                        $insertQuery = "INSERT INTO klienci VALUES(null, '$firstName', '$secondName', '$street', $numberHouse, '$zipCode', '$city', '$email', '$numberTel');";
+                        if($result = $conn->query($insertQuery)){
+                            if($result = $conn->query("SELECT LAST_INSERT_ID() AS id;")){
+					            $row = $result->fetch_assoc();
+					            $clientId = $row['id'];
+				            }
+                        }
+                    }                
+                }
+
+                
+
+                $conn->close();
+            }
+        }
     
     ?>
 </head>
@@ -70,26 +121,26 @@
                 </div>-->
 
 
-                <form class="contact__form">
+                <form class="contact__form" action = "#" method = "post">
                     <div class="contact__form-top">
                         <label for="name" class="contact__form-label">Imię</label>
-                        <input type="text" class="contact__form-input" id="name" />
+                        <input type="text" class="contact__form-input" id="name" name = "firstName"/>
                         <label for="name" class="contact__form-label">Nazwisko</label>
-                        <input type="text" class="contact__form-input" id="nazwisko" />
+                        <input type="text" class="contact__form-input" id="nazwisko" name = "secondName" />
                         <label for="email" class="contact__form-label">
                             Adres e-mail
                         </label>
-                        <input type="text" class="contact__form-input" id="email" />
+                        <input type="text" class="contact__form-input" id="email" name = "email"/>
                         <label for="telephone" class="contact__form-label">Nr telefonu</label>
-                        <input type="number" class="contact__form-input" id="telephone" />
+                        <input type="number" class="contact__form-input" id="telephone" name = "numberTel" />
                         <label for="street" class="contact__form-label">Ulica</label>
-                        <input type="text" class="contact__form-input" id="street" />
-                        <label for="houseNr" class="contact__form-label">Nr domu</label>
-                        <input type="number" class="contact__form-input" id="houseNr" />
+                        <input type="text" class="contact__form-input" id="street" name = "street" />
+                        <label for="houseNr" class="contact__form-label" >Nr domu</label>
+                        <input type="number" class="contact__form-input" id="houseNr" name = "numberHouse" />
                         <label for="city" class="contact__form-label">Miejscowość</label>
-                        <input type="text" class="contact__form-input" id="city" />
+                        <input type="text" class="contact__form-input" id="city" name = "city" />
                         <label for="zipCode" class="contact__form-label">Kod pocztowy</label>
-                        <input type="text" class="contact__form-input" id="zipCode" />
+                        <input type="text" class="contact__form-input" id="zipCode" name = "zipCode" />
                     </div>
                     <button type="submit" class="contact__form-btn btn-special-animation">
                         Zamów!

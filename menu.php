@@ -15,26 +15,27 @@
 	<link rel="stylesheet" href="./css/main.css" />
 	<link rel="stylesheet" href="./css/menu.css" />
 	<?php
+		//session_start();
 
 		if(isset($_POST['idPizzy'])){
 			if(!isset($_POST['cena'])){
-				echo "<script>console.log('cena nie została wybrana');</script>";
-				exit();
-			}
+				$_SESSION['menuMess'] = 'Cena nie została wybrana.';
+				$_SESSION['menuMessType'] = true;
+			}else{
+				require_once "connection.php";
+				$conn = makeConnection();
 
-			require_once "connection.php";
-			$conn = makeConnection();
+				$name = '';
+				$description = '';
 
-			$name = '';
-			$description = '';
+				if($result = $conn->query("SELECT nazwa, opis FROM pizza WHERE pizza_id = " . $_POST['idPizzy'])){
+					$row = $result->fetch_assoc();
 
-			if($result = $conn->query("SELECT nazwa, opis FROM pizza WHERE pizza_id = " . $_POST['idPizzy'])){
-				$row = $result->fetch_assoc();
-
-				$name = $row['nazwa'];
-				$description = $row['opis'];
-				require_once "orders.php";
-				addToOrder($_POST['idPizzy'], $name, $description, $_POST['cena']);
+					$name = $row['nazwa'];
+					$description = $row['opis'];
+					require_once "orders.php";
+					addToOrder($_POST['idPizzy'], $name, $description, $_POST['cena'], "menuMess");
+				}
 			}
 
 		}
@@ -73,165 +74,167 @@
 					</div>
 
 
-					<div class="menu__alert" >
-							<p class="menu__alert-red">Alert1</p>
-							<p class="menu__alert-green">Alert2</p>
-						</div>
-					<hr />
+					<!--<div class="menu__alert">
+						<p class="menu__alert-red">Alert1</p>
+						<p class="menu__alert-green">Alert2</p>
+					</div>
+					<hr />-->
 
 
 					<?php
-					
+
 						require_once "listFunct.php";
+						require_once "messages.php";
+
+						echo showMessages("menuMess");
 
 						echo listPizza();
-					
+
 					?>
 
 
 					<!--<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">1. Margharitta</p>
-							<p class="menu__item-desc-two">Sos pomidorowy, ser</p>
-						</div>
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">1. Margharitta</p>
+			<p class="menu__item-desc-two">Sos pomidorowy, ser</p>
+		</div>
 
-						<div class="menu__item-prices">
-							<form action="test.php" method="post">
-								<button class="slice one" disabled>
-									<input type="radio" value="29.90" name="cena" /> 29,90 zł
-								</button>
-								<button class="slice two" disabled>
-									<input type="radio" value="38.90" name="cena" /> 38,90 zł
-								</button>
-								<button type="submit" class="slice three">Dodaj</button>
-								<input type="hidden" name="idPizzy" />
-							</form>
-						</div>
-					</div>
-					<hr />-->
-
+		<div class="menu__item-prices">
+			<form action="test.php" method="post">
+				<button class="slice one" disabled>
+					<input type="radio" value="29.90" name="cena" /> 29,90 zł
+				</button>
+				<button class="slice two" disabled>
+					<input type="radio" value="38.90" name="cena" /> 38,90 zł
+				</button>
+				<button type="submit" class="slice three">Dodaj</button>
+				<input type="hidden" name="idPizzy" />
+			</form>
+		</div>
+	</div>
+	<hr />-->
 					<!-- <div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">2. Funghi</p>
-							<p class="menu__item-desc-two">Sos pomidorowy, ser, pieczarki</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="32.90">32,90 zł</button>
-							<button class="slice" value="41.90">41,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">3. Salami</p>
-							<p class="menu__item-desc-two">Sos pomidorowy, ser, salami</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="35.90">35,90 zł</button>
-							<button class="slice" value="43.90">43,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">4. Capriciosa</p>
-							<p class="menu__item-desc-two">
-								Sos pomidorowy, ser, pieczarki, szynka
-							</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="37.90">37,90 zł</button>
-							<button class="slice" value="45.90">45,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">5. Wegetariańska</p>
-							<p class="menu__item-desc-two">
-								Sos pomidorowy, ser, cebula, pieczarki, papryka, pomidor,
-								brokuły, oliwki
-							</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="35.90">35,90 zł</button>
-							<button class="slice" value="43.90">43,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">7. Diavola</p>
-							<p class="menu__item-desc-two">
-								Sos pomidorowy, ser, ostre salami, papryka jalapeno, oliwki
-							</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="34.90">34,90 zł</button>
-							<button class="slice" value="42.90">42,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">8. Prosciutto</p>
-							<p class="menu__item-desc-two">
-								Sos pomidorowy, ser mozarella, szynka parmeńska, pomidorki
-								koktajlowe, rukola, parmezan
-							</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="35.90">35,90 zł</button>
-							<button class="slice" value="43.90">43,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">8. Tonno</p>
-							<p class="menu__item-desc-two">
-								Sos pomidorowy, ser, pieczarki, oliwki, tuńczyk
-							</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="40.90">40,90 zł</button>
-							<button class="slice" value="48.90">48,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">9. Quatro Stagioni</p>
-							<p class="menu__item-desc-two">Sos pomidorowy, ser, salami</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="42.90">42,90 zł</button>
-							<button class="slice" value="50.90">50,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr />
-					<div class="menu__item">
-						<div class="menu__item-desc">
-							<p class="menu__item-desc-one">10. Don Vito</p>
-							<p class="menu__item-desc-two">
-								Sos pomidorowy, ser, boczek, cebula, pieczarki
-							</p>
-						</div>
-						<div class="menu__item-prices">
-							<button class="slice" value="40.90">40,90 zł</button>
-							<button class="slice" value="48.90">48,90 zł</button>
-							<button type="submit" class="slice">Dodaj</button>
-						</div>
-					</div>
-					<hr /> -->
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">2. Funghi</p>
+			<p class="menu__item-desc-two">Sos pomidorowy, ser, pieczarki</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="32.90">32,90 zł</button>
+			<button class="slice" value="41.90">41,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">3. Salami</p>
+			<p class="menu__item-desc-two">Sos pomidorowy, ser, salami</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="35.90">35,90 zł</button>
+			<button class="slice" value="43.90">43,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">4. Capriciosa</p>
+			<p class="menu__item-desc-two">
+				Sos pomidorowy, ser, pieczarki, szynka
+			</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="37.90">37,90 zł</button>
+			<button class="slice" value="45.90">45,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">5. Wegetariańska</p>
+			<p class="menu__item-desc-two">
+				Sos pomidorowy, ser, cebula, pieczarki, papryka, pomidor,
+				brokuły, oliwki
+			</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="35.90">35,90 zł</button>
+			<button class="slice" value="43.90">43,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">7. Diavola</p>
+			<p class="menu__item-desc-two">
+				Sos pomidorowy, ser, ostre salami, papryka jalapeno, oliwki
+			</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="34.90">34,90 zł</button>
+			<button class="slice" value="42.90">42,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">8. Prosciutto</p>
+			<p class="menu__item-desc-two">
+				Sos pomidorowy, ser mozarella, szynka parmeńska, pomidorki
+				koktajlowe, rukola, parmezan
+			</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="35.90">35,90 zł</button>
+			<button class="slice" value="43.90">43,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">8. Tonno</p>
+			<p class="menu__item-desc-two">
+				Sos pomidorowy, ser, pieczarki, oliwki, tuńczyk
+			</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="40.90">40,90 zł</button>
+			<button class="slice" value="48.90">48,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">9. Quatro Stagioni</p>
+			<p class="menu__item-desc-two">Sos pomidorowy, ser, salami</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="42.90">42,90 zł</button>
+			<button class="slice" value="50.90">50,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr />
+	<div class="menu__item">
+		<div class="menu__item-desc">
+			<p class="menu__item-desc-one">10. Don Vito</p>
+			<p class="menu__item-desc-two">
+				Sos pomidorowy, ser, boczek, cebula, pieczarki
+			</p>
+		</div>
+		<div class="menu__item-prices">
+			<button class="slice" value="40.90">40,90 zł</button>
+			<button class="slice" value="48.90">48,90 zł</button>
+			<button type="submit" class="slice">Dodaj</button>
+		</div>
+	</div>
+	<hr /> -->
 				</section>
 			</div>
 		</main>

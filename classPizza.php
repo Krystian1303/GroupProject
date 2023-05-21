@@ -22,6 +22,10 @@
 			$this->amount++;
 		}
 
+		function decrementAmount(){
+			$this->amount--;
+		}
+
 		function getId(){
 			return $this->id;
 		}

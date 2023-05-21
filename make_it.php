@@ -56,7 +56,7 @@
 			}
 
 			// Wyświetlić komunikat o udanym dodaniu pizzy do zamówienia
-			addToOrder($pizza_id, Pizza::DEFAULT_PIZZA_NAME, $description, Pizza::DEFAULT_PIZZA_PRICE);
+			addToOrder($pizza_id, Pizza::DEFAULT_PIZZA_NAME, $description, Pizza::DEFAULT_PIZZA_PRICE, "makeItMess");
 			echo "<script>console.log('Udalo sie dodac pizze zrob to sam do zamowien.'); </script>";
 			$conn->close();
 		}
@@ -97,14 +97,12 @@
 							<p class="create__heading-text">składniki</p>
 						</div>
 
-						<div class="create__alert" >
-							<p class="create__alert-red">Alert1</p>
-							<p class="create__alert-green">Alert2</p>
-						</div>
-
 						<?php
 					
 							require_once "listFunct.php";
+							require_once "messages.php";
+
+							echo showMessages("makeItMess");
 
 							echo listIngredients();
 					
