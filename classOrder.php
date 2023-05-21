@@ -31,10 +31,39 @@
 			$this->pizzas[] = new Pizza($id, $name, $description, $price);
 		}
 
+		function removePizza($whichPizza){
+
+		}
+
 		function show(){
+			$items  = '<div class="menu__item">';
+			$items .= '	<div class="menu__item-desc">';
+			$items .= '		<p class="menu__item-desc-one">Brak zamowien.</p>';
+			$items .= '	</div>';
+			$items .= '</div>';
+
+			$counter = 1;
 			foreach($this->pizzas as $pizza){
+				$items  = '<div class="menu__item">';
+                $items .= '   <div class="menu__item-desc">';
+                $items .= '        <p class="menu__item-desc-one">' . $counter . '. ' . $pizza->getName() . '</p>';
+                $items .= '        <p class="menu__item-desc-two">' . $pizza->getDescription() . '</p>';
+                $items .= '        <p class="menu__item-desc-three">Cena: ' . $pizza->getPrice() . '</p>';
+                $items .= '    </div>';
+                $items .= '    <div class="menu__item-prices">';
+                $items .= '        <form action="test.php" method="post">';
+                $items .= '            <button type="submit" class="slice three">Usun</button>';
+                $items .= '            <input type="hidden" name="idPizzy" />';
+                $items .= '        </form>';
+                $items .= '    </div>';
+                $items .= '</div>';
+
+				$counter++;
+
 				echo "<script>console.log('" . $pizza->show() . "'); </script>";
 			}
+
+			return $items;
 		}
 	}
 

@@ -39,7 +39,19 @@
         <section class="section section-padding white-section summary contact">
             <h2 class="section-heading">Podsumowanie zamówienia</h2>
             <div class="wrapper">
-                <div class="menu__item">
+
+
+
+
+
+                <?php
+                    require_once "orders.php";
+
+                    echo showOrder();
+                ?>
+
+
+                <!--<div class="menu__item">
                     <div class="menu__item-desc">
                         <p class="menu__item-desc-one">1. Margharitta</p>
                         <p class="menu__item-desc-two">Sos pomidorowy, ser</p>
@@ -52,7 +64,9 @@
                             <input type="hidden" name="idPizzy" />
                         </form>
                     </div>
-                </div>
+                </div>-->
+
+
                 <form class="contact__form">
                     <div class="contact__form-top">
                         <label for="name" class="contact__form-label">Imię</label>
