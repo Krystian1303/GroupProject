@@ -27,10 +27,13 @@
 				
 		}
 
-		if(isset($_POST['submitButton']) && empty($ingredients)) // Za mało składników - wyświetlanie błędu
-			echo "<script>console.log('Wybierz składniki aby zamówić pizzę'); </script>";
-		else if(isset($_POST['submitButton']) && count($ingredients) > 7) // Wyświetlanie błędu gdy ktoś doda za dużo składników
-			echo "<script>console.log('Za dużo składników. Maksymalna ilość składników to 7'); </script>";
+		if(isset($_POST['submitButton']) && empty($ingredients)){ // Za mało składników - wyświetlanie błędu
+			$_SESSION['makeItMess'] = 'Wybierz składniki aby zamówić pizzę';
+			$_SESSION['makeItMessType'] = true;
+		}else if(isset($_POST['submitButton']) && count($ingredients) > 7){ // Wyświetlanie błędu gdy ktoś doda za dużo składników
+			$_SESSION['makeItMess'] = 'Za dużo składników. Maksymalna ilość składników to 7';
+			$_SESSION['makeItMessType'] = true;
+		}
 		else if(isset($_POST['submitButton'])){
 			$iterator = 1;
 			$description = 'ciasto, ';
@@ -57,7 +60,8 @@
 
 			// Wyświetlić komunikat o udanym dodaniu pizzy do zamówienia
 			addToOrder($pizza_id, Pizza::DEFAULT_PIZZA_NAME, $description, Pizza::DEFAULT_PIZZA_PRICE, "makeItMess");
-			echo "<script>console.log('Udalo sie dodac pizze zrob to sam do zamowien.'); </script>";
+			$_SESSION['makeItMess'] = 'Udalo sie dodac pizze zrob to sam do zamowien.';
+			$_SESSION['makeItMessType'] = false;
 			$conn->close();
 		}
 
